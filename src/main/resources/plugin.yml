@@ -1,5 +1,6 @@
-name: Territories
-version: {project.version}
-main: com.starmediadev.plugins.realms.territories.Territories
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+main: com.starmediadev.plugins.territories.Territories
 api-version: 1.17
 depend: [StarData,StarMCUtils,PlotFramework]

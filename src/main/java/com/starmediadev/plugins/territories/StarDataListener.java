@@ -1,4 +1,4 @@
-package com.starmediadev.plugins.realms.territories;
+package com.starmediadev.plugins.territories;
 
 import com.starmediadev.data.properties.SqlProperties;
 import com.starmediadev.data.properties.SqliteProperties;

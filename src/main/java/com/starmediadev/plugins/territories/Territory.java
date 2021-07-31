@@ -1,7 +1,6 @@
-package com.starmediadev.plugins.realms.territories;
+package com.starmediadev.plugins.territories;
 
 import com.starmediadev.data.annotations.ColumnIgnored;
-import com.starmediadev.data.annotations.ColumnInfo;
 import com.starmediadev.data.annotations.TableInfo;
 import com.starmediadev.data.model.DataInfo;
 import com.starmediadev.data.model.IDataObject;
