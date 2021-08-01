@@ -34,12 +34,11 @@ public class StarDataListener implements Listener {
     @EventHandler
     public void onTypeRegister(TypeRegisterEvent e) {
         e.addDataType(Territory.class);
-        e.addDataType(TerritoryOwner.class);
     }
 
     @EventHandler
     public void onHandlerRegister(HandlerRegisterEvent e) {
-
+        e.registerTypeHandler(new OwnerTypeHandler());
     }
 
     @EventHandler

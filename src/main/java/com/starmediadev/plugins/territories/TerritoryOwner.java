@@ -1,14 +1,16 @@
 package com.starmediadev.plugins.territories;
 
-import com.starmediadev.data.annotations.TableInfo;
-import com.starmediadev.data.model.DataInfo;
-import com.starmediadev.data.model.IDataObject;
+public abstract class TerritoryOwner {
+    protected String identifier;
 
-@TableInfo(tableName = "owners")
-public abstract class TerritoryOwner implements IDataObject {
-    private DataInfo dataInfo;
-
-    public DataInfo getDataInfo() {
-        return dataInfo;
+    public TerritoryOwner(String identifier) {
+        this.identifier = identifier;
     }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+    
+    public abstract void sendMessage(String message);
+    public abstract String getName();
 }
