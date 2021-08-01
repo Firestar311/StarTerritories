@@ -19,10 +19,16 @@ public class Territory implements IDataObject {
     @ColumnIgnored
     private Territories plugin;
     
-    private String territoryId;
+    private String territoryId, name;
     private TerritoryOwner owner;
     private Location spawnpoint;
     private Set<String> claimedPlots = new HashSet<>();
+    private long createdDate;
+    private Set<TerritoryFlag> flags = new HashSet<>();
+    private Set<TerritoryMember> members = new HashSet<>();
+    private Set<TerritoryInvite> invites = new HashSet<>();
+    private Privacy privacy;
+    private Set<TerritoryRank> ranks = new HashSet<>();
     
     @ColumnIgnored
     private Map<String, Plot> plotCache = new HashMap<>();
