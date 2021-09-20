@@ -2,8 +2,7 @@ package com.starmediadev.plugins.territories;
 
 import com.starmediadev.data.annotations.ColumnIgnored;
 import com.starmediadev.data.annotations.TableInfo;
-import com.starmediadev.data.model.DataInfo;
-import com.starmediadev.data.model.IDataObject;
+import com.starmediadev.data.model.AbstractDataObject;
 import com.starmediadev.plugins.framework.plot.Plot;
 import org.bukkit.Location;
 
@@ -13,9 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 @TableInfo(tableName = "territories")
-public class Territory implements IDataObject {
-    private DataInfo dataInfo;
-    
+public abstract class Territory extends AbstractDataObject {
     @ColumnIgnored
     private Territories plugin;
     
@@ -32,8 +29,9 @@ public class Territory implements IDataObject {
     
     @ColumnIgnored
     private Map<String, Plot> plotCache = new HashMap<>();
-
-    public DataInfo getDataInfo() {
-        return dataInfo;
+    
+    public Territory(String id, TerritoryOwner owner) {
+        this.territoryId = id;
+        this.owner = owner;
     }
 }
