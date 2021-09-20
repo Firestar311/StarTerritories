@@ -1,9 +1,16 @@
-package com.starmediadev.plugins.territories;
+package com.starmediadev.plugins.territories.object.territory;
 
 import com.starmediadev.data.annotations.ColumnIgnored;
 import com.starmediadev.data.annotations.TableInfo;
 import com.starmediadev.data.model.AbstractDataObject;
 import com.starmediadev.plugins.framework.plot.Plot;
+import com.starmediadev.plugins.territories.Privacy;
+import com.starmediadev.plugins.territories.Territories;
+import com.starmediadev.plugins.territories.object.owner.TerritoryOwner;
+import com.starmediadev.plugins.territories.object.territory.TerritoryFlag;
+import com.starmediadev.plugins.territories.object.territory.TerritoryInvite;
+import com.starmediadev.plugins.territories.object.territory.TerritoryMember;
+import com.starmediadev.plugins.territories.object.territory.TerritoryRank;
 import org.bukkit.Location;
 
 import java.util.HashMap;

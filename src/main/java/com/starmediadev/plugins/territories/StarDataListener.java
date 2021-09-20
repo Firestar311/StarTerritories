@@ -6,6 +6,8 @@ import com.starmediadev.plugins.data.events.DatabaseRegisterEvent;
 import com.starmediadev.plugins.data.events.HandlerRegisterEvent;
 import com.starmediadev.plugins.data.events.PostDataSetupEvent;
 import com.starmediadev.plugins.data.events.TypeRegisterEvent;
+import com.starmediadev.plugins.territories.object.data.OwnerTypeHandler;
+import com.starmediadev.plugins.territories.object.territory.Territory;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 

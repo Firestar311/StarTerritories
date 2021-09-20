@@ -1,6 +1,6 @@
-package com.starmediadev.plugins.territories;
+package com.starmediadev.plugins.territories.object.owner;
 
-public abstract class TerritoryOwner {
+public abstract sealed class TerritoryOwner permits PlayerOwner, ServerOwner {
     protected String identifier;
 
     public TerritoryOwner(String identifier) {

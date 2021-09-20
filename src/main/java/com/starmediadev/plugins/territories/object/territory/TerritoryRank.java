@@ -1,4 +1,4 @@
-package com.starmediadev.plugins.territories;
+package com.starmediadev.plugins.territories.object.territory;
 
 import com.starmediadev.data.annotations.TableInfo;
 
