@@ -15,7 +15,7 @@ public sealed class PlayerOwner extends TerritoryOwner permits AdminOwner {
     @ColumnIgnored
     private UUID uuidCache; //Prevents having to convert from a string all the time
     @ColumnIgnored
-    private String nameCache; //Prevents running the name all the time
+    private String nameCache; //Prevents getting the name all the time
     
     public PlayerOwner(UUID uuid) {
         super(uuid.toString());

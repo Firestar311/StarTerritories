@@ -1,6 +1,6 @@
 package com.starmediadev.plugins.territories.object.data;
 
-import com.starmediadev.data.handlers.DataTypeHandler;
+import com.starmediadev.data.model.DataTypeHandler;
 import com.starmediadev.plugins.territories.object.owner.AdminOwner;
 import com.starmediadev.plugins.territories.object.owner.PlayerOwner;
 import com.starmediadev.plugins.territories.object.owner.ServerOwner;
