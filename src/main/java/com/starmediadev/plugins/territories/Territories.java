@@ -1,7 +1,7 @@
 package com.starmediadev.plugins.territories;
 
 import com.starmediadev.data.manager.DatabaseManager;
-import com.starmediadev.plugins.framework.plot.PlotManager;
+import com.starmediadev.plugins.plotframework.PlotManager;
 import com.starmediadev.plugins.territories.object.territory.TerritoryManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.ServicePriority;
