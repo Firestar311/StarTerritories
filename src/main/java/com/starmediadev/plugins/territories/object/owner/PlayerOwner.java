@@ -1,7 +1,5 @@
 package com.starmediadev.plugins.territories.object.owner;
 
-import com.starmediadev.data.annotations.ColumnIgnored;
-import com.starmediadev.data.annotations.TableInfo;
 import com.starmediadev.plugins.starmcutils.util.MCUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -9,12 +7,9 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-@TableInfo(tableName = "playerowners")
 public sealed class PlayerOwner extends TerritoryOwner permits AdminOwner {
     
-    @ColumnIgnored
     private UUID uuidCache; //Prevents having to convert from a string all the time
-    @ColumnIgnored
     private String nameCache; //Prevents getting the name all the time
     
     public PlayerOwner(UUID uuid) {

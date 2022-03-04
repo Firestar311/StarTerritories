@@ -1,8 +1,5 @@
 package com.starmediadev.plugins.territories.object.territory;
 
-import com.starmediadev.data.annotations.ColumnIgnored;
-import com.starmediadev.data.annotations.TableInfo;
-import com.starmediadev.data.model.AbstractDataObject;
 import com.starmediadev.plugins.plotframework.Plot;
 import com.starmediadev.plugins.territories.Privacy;
 import com.starmediadev.plugins.territories.Territories;
@@ -14,9 +11,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-@TableInfo(tableName = "territories")
-public abstract class Territory extends AbstractDataObject {
-    @ColumnIgnored
+public abstract class Territory {
     private Territories plugin;
     
     private String territoryId, name;
@@ -30,7 +25,6 @@ public abstract class Territory extends AbstractDataObject {
     private Privacy privacy;
     private Set<TerritoryRank> ranks = new HashSet<>();
     
-    @ColumnIgnored
     private Map<String, Plot> plotCache = new HashMap<>();
     
     public Territory(String id, TerritoryOwner owner) {
