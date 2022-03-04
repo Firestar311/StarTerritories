@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.starmediadev.plugins</groupId>
-    <artifactId>territories</artifactId>
+    <artifactId>starterritories</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -15,8 +15,8 @@
         <jar.output>${user.home}\Documents\JarOutput</jar.output>
     </properties>
     
-    <name>Territories</name>
-    <description>A plugin to manage claimed territories</description>
+    <name>StarTerritories</name>
+    <description>A plugin to manage claims</description>
 
     <build>
         <plugins>

@@ -1,12 +1,12 @@
-package com.starmediadev.plugins.territories;
+package com.starmediadev.plugins.starterritories;
 
 import com.starmediadev.plugins.plotframework.PlotManager;
-import com.starmediadev.plugins.territories.object.territory.TerritoryManager;
+import com.starmediadev.plugins.starterritories.object.territory.TerritoryManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Territories extends JavaPlugin {
+public class StarTerritories extends JavaPlugin {
     private PlotManager plotManager;
     private TerritoryManager territoryManager;
     

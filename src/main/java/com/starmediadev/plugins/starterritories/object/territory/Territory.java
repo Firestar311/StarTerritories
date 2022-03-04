@@ -1,9 +1,9 @@
-package com.starmediadev.plugins.territories.object.territory;
+package com.starmediadev.plugins.starterritories.object.territory;
 
 import com.starmediadev.plugins.plotframework.Plot;
-import com.starmediadev.plugins.territories.Privacy;
-import com.starmediadev.plugins.territories.Territories;
-import com.starmediadev.plugins.territories.object.owner.TerritoryOwner;
+import com.starmediadev.plugins.starterritories.Privacy;
+import com.starmediadev.plugins.starterritories.StarTerritories;
+import com.starmediadev.plugins.starterritories.object.owner.TerritoryOwner;
 import org.bukkit.Location;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class Territory {
-    private Territories plugin;
+    private StarTerritories plugin;
     
     private String territoryId, name;
     private TerritoryOwner owner;

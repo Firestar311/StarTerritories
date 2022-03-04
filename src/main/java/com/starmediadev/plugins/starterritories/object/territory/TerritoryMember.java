@@ -1,4 +1,4 @@
-package com.starmediadev.plugins.territories.object.territory;
+package com.starmediadev.plugins.starterritories.object.territory;
 
 import java.util.UUID;
 

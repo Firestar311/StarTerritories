@@ -1,2 +1,2 @@
 # Territories
-The base territories plugin for the KingRealms server
+The base plugin plugin for the KingRealms server
