@@ -2,5 +2,5 @@ name: ${project.name}
 version: ${project.version}
 description: ${project.description}
 main: ${project.groupId}.${project.artifactId}.${project.name}
-api-version: 1.17
-depend: [StarMCUtils,PlotFramework]
+api-version: 1.18
+depend: [StarMCUtils]
