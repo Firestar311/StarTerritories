@@ -10,7 +10,6 @@ public class StarTerritories extends JavaPlugin {
     @Override
     public void onEnable() {
         plotManager = new PlotManager(this);
-        getServer().getPluginManager().registerEvents(plotManager, this);
     }
     
     @Override
