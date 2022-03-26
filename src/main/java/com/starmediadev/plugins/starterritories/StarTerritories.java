@@ -1,19 +1,55 @@
 package com.starmediadev.plugins.starterritories;
 
-import com.starmediadev.plugins.starterritories.plot.*;
+import com.starmediadev.plugins.starterritories.listener.FlagListener;
+import com.starmediadev.plugins.starterritories.objects.plot.PlotManager;
+import com.starmediadev.plugins.starterritories.objects.resident.ResidentManager;
+import com.starmediadev.plugins.starterritories.objects.territory.*;
+import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.java.JavaPlugin;
+import revxrsal.commands.CommandHandler;
+import revxrsal.commands.bukkit.BukkitCommandHandler;
+
+import java.util.EnumSet;
+
+import static org.bukkit.entity.EntityType.*;
 
 public class StarTerritories extends JavaPlugin {
     
     private PlotManager plotManager;
+    private TerritoryManager territoryManager;
+    private ResidentManager residentManager;
+    
+    public static final EnumSet<EntityType> PASSIVE_MOBS = EnumSet.of(AXOLOTL, BAT, CAT, CHICKEN, COD, COW, DONKEY, FOX, GLOW_SQUID, HORSE, MUSHROOM_COW, MULE, OCELOT, PARROT, PIG, PUFFERFISH, RABBIT, SALMON, SHEEP, SKELETON_HORSE, SNOWMAN, SQUID, STRIDER, TROPICAL_FISH, TURTLE, VILLAGER, WANDERING_TRADER);
+    public static final EnumSet<EntityType> NEUTRAL_MOBS = EnumSet.of(BEE, CAVE_SPIDER, DOLPHIN, ENDERMAN, GOAT, IRON_GOLEM, LLAMA, PANDA, PIGLIN, POLAR_BEAR, SPIDER, TRADER_LLAMA, WOLF, ZOMBIFIED_PIGLIN);
+    public static final EnumSet<EntityType> HOSTILE_MOBS = EnumSet.of(BLAZE, CREEPER, DROWNED, ELDER_GUARDIAN, ENDERMITE, EVOKER, GHAST, GUARDIAN, HOGLIN, HUSK, MAGMA_CUBE, PHANTOM, PIGLIN_BRUTE, PILLAGER, RAVAGER, SHULKER, SILVERFISH, SKELETON, SLIME, STRAY, VEX, VINDICATOR, WITCH, WITHER_SKELETON, ZOGLIN, ZOMBIE, ZOMBIE_VILLAGER);
+    public static final EnumSet<EntityType> BOSS_MOBS = EnumSet.of(WITHER, ENDER_DRAGON);
     
     @Override
     public void onEnable() {
-        plotManager = new PlotManager(this);
+        plotManager = new PlotManager();
+        territoryManager = new TerritoryManager();
+        residentManager = new ResidentManager();
+        getServer().getPluginManager().registerEvents(new FlagListener(this), this);
+    
+        CommandHandler commandHandler = BukkitCommandHandler.create(this);
+        commandHandler.registerDependency(StarTerritories.class, this);
+        commandHandler.register(new PlotCmds());
     }
     
     @Override
     public void onDisable() {
-        plotManager.saveData();
+        
+    }
+    
+    public PlotManager getPlotManager() {
+        return plotManager;
+    }
+    
+    public TerritoryManager getTerritoryManager() {
+        return territoryManager;
+    }
+    
+    public ResidentManager getResidentManager() {
+        return residentManager;
     }
 }
