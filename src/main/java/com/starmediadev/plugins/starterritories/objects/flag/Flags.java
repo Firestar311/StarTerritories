@@ -29,8 +29,8 @@ public enum Flags {
     ITEM_MERGE(false, MaterialFlag.class, ALLOW), //works
     BLOCK_BREAK(true, MaterialFlag.class, ALLOW), //works
     BLOCK_PLACE(true, MaterialFlag.class, ALLOW), //works
-    ENTRY(true, RoleFlag.class, ALLOW), //TODO RUNNABLE
-    EXIT(true, RoleFlag.class, ALLOW), //TODO RUNNABLE
+    ENTRY(true, RoleFlag.class, ALLOW), //DONE
+    EXIT(true, RoleFlag.class, ALLOW), //DONE
     BLOCK_BURNING(false, MaterialFlag.class, ALLOW), //works
     POTION_SPLASH(false, PotionFlag.class, ALLOW), //works
     BLOCK_INTERACT(true, MaterialFlag.class, ALLOW), //works

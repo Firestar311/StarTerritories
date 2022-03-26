@@ -35,10 +35,33 @@ public class FlagListener implements Listener {
     
     public FlagListener(StarTerritories plugin) {
         this.plugin = plugin;
-        
-        Bukkit.getScheduler().runTaskTimer(plugin, () -> {
-            
-        }, 1L, 1L);
+//        
+//        Bukkit.getScheduler().runTaskTimer(plugin, () -> {
+//            for (Player player : Bukkit.getOnlinePlayers()) {
+//                Location lastLocation = lastPlayerLocations.get(player.getUniqueId());
+//                if (lastLocation == null) {
+//                    lastLocation = player.getLocation();
+//                }
+//                Location location = player.getLocation();
+//                if (location.getWorld().getName().equals(lastLocation.getWorld().getName()) && location.getBlockX() == lastLocation.getBlockX() &&
+//                        location.getBlockY() == lastLocation.getBlockY() && location.getBlockZ() == lastLocation.getBlockZ()) {
+//                    continue;
+//                }
+//                
+//                Plot lastPlot = plugin.getPlotManager().getPlot(lastLocation), currentPlot = plugin.getPlotManager().getPlot(location);
+//                if (lastPlot.equals(currentPlot)) {
+//                    continue;
+//                }
+//                
+//                if (currentPlot.getFlagValue(Flags.ENTRY, player, getRole(currentPlot, player)) == FlagValue.DENY) {
+//                    player.teleport(lastLocation);
+//                } else if (lastPlot.getFlagValue(Flags.EXIT, player, getRole(lastPlot, player)) == FlagValue.DENY) {
+//                    player.teleport(lastLocation);
+//                }
+//    
+//                this.lastPlayerLocations.put(player.getUniqueId(), location);
+//            }
+//        }, 1L, 1L);
     }
     
     private void handleSingleLocationEvent(Cancellable cancellable, Flags flag, Location location, Player player, Object object) {
@@ -215,7 +238,7 @@ public class FlagListener implements Listener {
                 } else if (block.getState() instanceof Container) {
                     flagValue = plot.getFlagValue(Flags.CONTAINER, e.getPlayer(), block.getType());
                 } else if (block.getBlockData() instanceof Bed && e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                      flagValue = plot.getFlagValue(Flags.SLEEP, e.getPlayer(), block.getType());
+                    flagValue = plot.getFlagValue(Flags.SLEEP, e.getPlayer(), block.getType());
                 } else {
                     flagValue = plot.getFlagValue(Flags.BLOCK_INTERACT, e.getPlayer(), block.getType());
                 }
@@ -261,7 +284,7 @@ public class FlagListener implements Listener {
             case WATER, BUBBLE_COLUMN -> Flags.WATER_FLOW;
             case LAVA -> Flags.LAVA_FLOW;
             case DRAGON_EGG -> Flags.DRAGON_EGG_TELEPORT;
-            default -> 
+            default ->
                     null; //Should never be this as this event only fires on liquids and the dragon egg, this just satisfies the switch statement
         };
         
@@ -432,6 +455,30 @@ public class FlagListener implements Listener {
                 }
             }
             plugin.getLogger().info("Did not allow player to keep inventory on death while world keep inventory gamerule was true");
+        }
+    }
+    
+    @EventHandler
+    public void onPlayerMove(PlayerMoveEvent e) {
+        Location from = e.getFrom();
+        Location to = e.getTo();
+        
+        if (from.getBlockX() == to.getBlockX() && from.getBlockZ() == to.getBlockZ()) {
+            return;
+        }
+        
+        Plot fromPlot = plugin.getPlotManager().getPlot(from), toPlot = plugin.getPlotManager().getPlot(to);
+        if (fromPlot.equals(toPlot)) {
+            return;
+        }
+        
+        if (toPlot.getFlagValue(Flags.ENTRY, e.getPlayer(), getRole(toPlot, e.getPlayer())) == FlagValue.DENY) {
+            e.setCancelled(true);
+            return;
+        }
+        
+        if (fromPlot.getFlagValue(Flags.EXIT, e.getPlayer(), getRole(fromPlot, e.getPlayer())) == FlagValue.DENY) {
+            e.setCancelled(true);
         }
     }
 }
