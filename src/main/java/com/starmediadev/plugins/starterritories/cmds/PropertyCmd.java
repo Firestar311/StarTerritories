@@ -3,14 +3,12 @@ package com.starmediadev.plugins.starterritories.cmds;
 import com.starmediadev.plugins.starmcutils.builder.ItemBuilder;
 import com.starmediadev.plugins.starmcutils.region.*;
 import com.starmediadev.plugins.starmcutils.util.MCUtils;
-import com.starmediadev.plugins.starmcutils.workload.WorkloadThread;
 import com.starmediadev.plugins.starterritories.StarTerritories;
 import com.starmediadev.plugins.starterritories.objects.flag.*;
 import com.starmediadev.plugins.starterritories.objects.owner.PlayerOwner;
 import com.starmediadev.plugins.starterritories.objects.territory.Territory;
 import com.starmediadev.plugins.starterritories.objects.territory.impl.Property;
-import org.bukkit.*;
-import org.bukkit.block.Block;
+import org.bukkit.Material;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -64,9 +62,6 @@ public class PropertyCmd implements TabExecutor {
             }
             
             Property property = plugin.getTerritoryManager().createProperty(new PlayerOwner(player), cuboid);
-            Cuboid claim = property.getClaim();
-            claim.createOutline(plugin, Material.CYAN_STAINED_GLASS);
-            
             player.sendMessage(MCUtils.color("&eSuccessfully created your property with id &b" + property.getId()));
         } else if (args[0].equalsIgnoreCase("flag")) {
             if (!(args.length > 1)) {
