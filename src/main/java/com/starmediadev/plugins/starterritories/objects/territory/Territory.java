@@ -11,7 +11,7 @@ import org.bukkit.entity.*;
 
 import java.util.UUID;
 
-public abstract class Territory implements Ownable, Flagable {
+public abstract class Territory implements Ownable, Flagable, Identifiable {
     protected final String id;
     protected Owner owner;
     protected FlagList flagList = new FlagList();

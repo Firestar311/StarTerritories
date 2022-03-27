@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import java.util.*;
 
-public final class Plot extends Cuboid implements Ownable, Flagable {
+public final class Plot extends Cuboid implements Ownable, Flagable, Identifiable {
     
     private final String id;
     private PlotData plotData;

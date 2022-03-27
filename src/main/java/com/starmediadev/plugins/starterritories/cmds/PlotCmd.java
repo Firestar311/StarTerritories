@@ -4,6 +4,7 @@ import com.starmediadev.plugins.starmcutils.util.MCUtils;
 import com.starmediadev.plugins.starterritories.StarTerritories;
 import com.starmediadev.plugins.starterritories.objects.flag.*;
 import com.starmediadev.plugins.starterritories.objects.plot.Plot;
+import com.starmediadev.plugins.starterritories.utils.TUtils;
 import com.starmediadev.utils.helper.TimeHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.command.*;
@@ -48,44 +49,7 @@ public class PlotCmd implements TabExecutor {
                 player.sendMessage(MCUtils.color("&eClaimed: &bNo"));
             }
         } else if (args[0].equalsIgnoreCase("flag")) {
-            if (!(args.length > 1)) {
-                player.sendMessage(MCUtils.color("&cYou must provide a flag sub command."));
-                return true;
-            }
-            
-            if (!(args.length > 2)) {
-                player.sendMessage(MCUtils.color("&cYou must provide a flag name"));
-                return true;
-            }
-    
-            Flags flag;
-            try {
-                flag = Flags.valueOf(args[2].toUpperCase());
-            } catch (IllegalArgumentException e) {
-                player.sendMessage("&cInvalid flag value: " + args[2]);
-                return true;
-            }
-    
-            if (args[1].equalsIgnoreCase("view")) {
-                FlagValue flagValue = plot.getFlags().get(flag.name()).getValue();
-                player.sendMessage(MCUtils.color("&eFlag &b" + flag.name().toLowerCase() + " &ehas the value &b" + flagValue.name().toLowerCase() + " &ein plot &b" + plot.getId()));
-            } else if (args[1].equalsIgnoreCase("set")) {
-                FlagValue flagValue;
-                try {
-                    flagValue = FlagValue.valueOf(args[3].toUpperCase());
-                } catch (Exception e) {
-                    player.sendMessage(MCUtils.color("&cInvalid flag value: " + args[3]));
-                    return true;
-                }
-    
-                if (flagValue == FlagValue.DISABLED || flagValue == FlagValue.RESTRICTED) {
-                    player.sendMessage("&cOnly allow, undefined and deny are allowed to be set by this command at this time");
-                    return true;
-                }
-    
-                plot.setFlag(flag, flagValue);
-                player.sendMessage(MCUtils.color("&eSet the flag &b" + flag.name().toLowerCase() + " &eto &b" + flagValue.name().toLowerCase() + " &ein plot &b" + plot.getId()));
-            }
+            TUtils.handleFlagableFlagSubCommand(player, args, plot);
         }
         return true;
     }
