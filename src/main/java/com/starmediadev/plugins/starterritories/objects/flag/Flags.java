@@ -7,67 +7,67 @@ import java.lang.reflect.*;
 import static com.starmediadev.plugins.starterritories.objects.flag.FlagValue.*;
 
 public enum Flags {
-    NEUTRAL_MOB_SPAWN(false, EntityFlag.class, ALLOW), //WORKS
-    HOSTILE_MOB_SPAWN(false, EntityFlag.class, ALLOW), //WORKS
-    PASSIVE_MOB_SPAWN(false, EntityFlag.class, ALLOW), //WORKS
-    BOSS_MOB_SPAWN(false, EntityFlag.class, ALLOW), //WORKS
-    PVP(true), //DONE
-    PORTAL_CREATION(false), //works
-    PORTAL_TELEPORT(false), //works
-    CHORUS_FRUIT(true), //works
-    ENDER_PEARL(true), //works
-    FIRESPREAD(false, MaterialFlag.class, ALLOW), //works
-    BLOCK_IGNITE(false, MaterialFlag.class, ALLOW), //works
-    CROP_TRAMPLE(true, MaterialFlag.class, ALLOW), //works
-    ITEM_PICKUP(true, MaterialFlag.class, ALLOW), //works
-    POTION_CONSUME(true, PotionFlag.class, ALLOW), //works
-    LAVA_FLOW(false), //WORKS
-    WATER_FLOW(false), //WORKS
-    DRAGON_EGG_TELEPORT(false), //WORKS 
-    EXPLOSION_BLOCK_DAMAGE(false, MaterialFlag.class, ALLOW), //works
-    FOOD_CHANGE(true), //works
-    ITEM_MERGE(false, MaterialFlag.class, ALLOW), //works
-    BLOCK_BREAK(true, MaterialFlag.class, ALLOW), //works
-    BLOCK_PLACE(true, MaterialFlag.class, ALLOW), //works
-    ENTRY(true, RoleFlag.class, ALLOW), //DONE
-    EXIT(true, RoleFlag.class, ALLOW), //DONE
-    BLOCK_BURNING(false, MaterialFlag.class, ALLOW), //works
-    POTION_SPLASH(false, PotionFlag.class, ALLOW), //works
-    BLOCK_INTERACT(true, MaterialFlag.class, ALLOW), //works
-    ITEM_DROP(true, MaterialFlag.class, ALLOW), //works
-    CRAFTING(true, MaterialFlag.class, ALLOW), //works
-    CONTACT_DAMAGE(false), //works
-    ENTITY_ATTACK_DAMAGE(false), //works
-    ENTITY_SWEEP_DAMAGE(false), //works
-    PROJECTILE_DAMAGE(false), //works
-    SUFFOCATION_DAMAGE(false), //works
-    FALL_DAMAGE(false), //works
-    FIRE_DAMAGE(false), //works
-    MELTING_DAMAGE(false), //works
-    LAVA_DAMAGE(false), //works
-    DROWNING_DAMAGE(false), //works
-    ENTITY_EXPLOSION_DAMAGE(false), //works
-    VOID_DAMAGE(false), //works
-    LIGHTNING_DAMAGE(false), //works
-    SUICIDE_DAMAGE(false), //works
-    STARVATION_DAMAGE(false), //works
-    POISON_DAMAGE(false), //works
-    MAGIC_DAMAGE(false), //works
-    WITHER_DAMAGE(false), //works
-    FALLING_BLOCK_DAMAGE(false), //works
-    THORNS_DAMAGE(false), //works
-    DRAGON_BREATH_DAMAGE(false), //works
-    FLY_INTO_WALL_DAMAGE(false), //works
-    HOT_FLOOR_DAMAGE(false), //works
-    CRAMMING_DAMAGE(false, EntityFlag.class, ALLOW), //works
-    DRY_OUT_DAMAGE(false, EntityFlag.class, ALLOW), //works
-    FREEZE_DAMAGE(false, EntityFlag.class, ALLOW), //works
-    CONTAINER(true, MaterialFlag.class, ALLOW), //works
-    SLEEP(true, RoleFlag.class, ALLOW), //works
-    KEEP_INVENTORY(true, RoleFlag.class, ALLOW), //works
-    DOOR(true), //works
-    SWITCH(true), //works
-    PRESSURE_PLATE(true); //DONE
+    NEUTRAL_MOB_SPAWN(false, EntityFlag.class, ALLOW),
+    HOSTILE_MOB_SPAWN(false, EntityFlag.class, ALLOW), 
+    PASSIVE_MOB_SPAWN(false, EntityFlag.class, ALLOW), 
+    BOSS_MOB_SPAWN(false, EntityFlag.class, ALLOW), 
+    PVP(true),
+    PORTAL_CREATION(false), 
+    PORTAL_TELEPORT(false), 
+    CHORUS_FRUIT(true), 
+    ENDER_PEARL(true), 
+    FIRESPREAD(false, MaterialFlag.class, ALLOW), 
+    BLOCK_IGNITE(false, MaterialFlag.class, ALLOW), 
+    CROP_TRAMPLE(true, MaterialFlag.class, ALLOW), 
+    ITEM_PICKUP(true, MaterialFlag.class, ALLOW), 
+    POTION_CONSUME(true, PotionFlag.class, ALLOW), 
+    LAVA_FLOW(false), 
+    WATER_FLOW(false), 
+    DRAGON_EGG_TELEPORT(false),  
+    EXPLOSION_BLOCK_DAMAGE(false, MaterialFlag.class, ALLOW), 
+    FOOD_CHANGE(true), 
+    ITEM_MERGE(false, MaterialFlag.class, ALLOW), 
+    BLOCK_BREAK(true, MaterialFlag.class, ALLOW), 
+    BLOCK_PLACE(true, MaterialFlag.class, ALLOW), 
+    ENTRY(true, RoleFlag.class, ALLOW),
+    EXIT(true, RoleFlag.class, ALLOW),
+    BLOCK_BURNING(false, MaterialFlag.class, ALLOW), 
+    POTION_SPLASH(false, PotionFlag.class, ALLOW), 
+    BLOCK_INTERACT(true, MaterialFlag.class, ALLOW), 
+    ITEM_DROP(true, MaterialFlag.class, ALLOW), 
+    CRAFTING(true, MaterialFlag.class, ALLOW), 
+    CONTACT_DAMAGE(false), 
+    ENTITY_ATTACK_DAMAGE(false), 
+    ENTITY_SWEEP_DAMAGE(false), 
+    PROJECTILE_DAMAGE(false), 
+    SUFFOCATION_DAMAGE(false), 
+    FALL_DAMAGE(false), 
+    FIRE_DAMAGE(false), 
+    MELTING_DAMAGE(false), 
+    LAVA_DAMAGE(false), 
+    DROWNING_DAMAGE(false), 
+    ENTITY_EXPLOSION_DAMAGE(false), 
+    VOID_DAMAGE(false), 
+    LIGHTNING_DAMAGE(false), 
+    SUICIDE_DAMAGE(false), 
+    STARVATION_DAMAGE(false), 
+    POISON_DAMAGE(false), 
+    MAGIC_DAMAGE(false), 
+    WITHER_DAMAGE(false), 
+    FALLING_BLOCK_DAMAGE(false), 
+    THORNS_DAMAGE(false), 
+    DRAGON_BREATH_DAMAGE(false), 
+    FLY_INTO_WALL_DAMAGE(false), 
+    HOT_FLOOR_DAMAGE(false), 
+    CRAMMING_DAMAGE(false, EntityFlag.class, ALLOW), 
+    DRY_OUT_DAMAGE(false, EntityFlag.class, ALLOW), 
+    FREEZE_DAMAGE(false, EntityFlag.class, ALLOW), 
+    CONTAINER(true, MaterialFlag.class, ALLOW), 
+    SLEEP(true, RoleFlag.class, ALLOW), 
+    KEEP_INVENTORY(true, RoleFlag.class, ALLOW), 
+    DOOR(true), 
+    SWITCH(true), 
+    PRESSURE_PLATE(true);
     private final FlagValue defaultTypeValue;
     private final boolean supportsRestricted, requiresPlayer;
     private final Class<? extends Flag> flagClass;
