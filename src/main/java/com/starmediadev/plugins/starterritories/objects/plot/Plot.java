@@ -69,8 +69,8 @@ public final class Plot extends Cuboid implements Ownable, Flagable {
     }
     
     @Override
-    public FlagValue getFlagValue(Flags flag, Player player, Object object) {
-        return this.plotData.getFlagValue(flag, player, object);
+    public FlagValue getFlagValue(Flags flag, Player player, Location location, Object object) {
+        return this.plotData.getFlagValue(flag, player, location, object);
     }
     
     @Override

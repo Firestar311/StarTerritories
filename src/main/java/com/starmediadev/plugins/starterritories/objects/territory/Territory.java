@@ -14,7 +14,7 @@ import java.util.UUID;
 public abstract class Territory implements Ownable, Flagable {
     protected final String id;
     protected Owner owner;
-    protected FlagList flagList;
+    protected FlagList flagList = new FlagList();
     
     public Territory(String id, Owner owner) {
         this.id = id;
@@ -46,7 +46,7 @@ public abstract class Territory implements Ownable, Flagable {
     }
     
     @Override
-    public FlagValue getFlagValue(Flags flag, Player player, Object object) {
+    public FlagValue getFlagValue(Flags flag, Player player, Location location, Object object) {
         return this.flagList.get(flag.name()).getEffectiveValue(player, object);
     }
     

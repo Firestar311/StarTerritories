@@ -4,6 +4,7 @@ import com.starmediadev.plugins.starterritories.objects.flag.*;
 import com.starmediadev.plugins.starterritories.objects.meta.Flagable;
 import com.starmediadev.plugins.starterritories.objects.owner.TerritoryOwner;
 import com.starmediadev.plugins.starterritories.objects.plot.*;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public abstract class PlotData implements Flagable {
@@ -36,11 +37,11 @@ public abstract class PlotData implements Flagable {
     }
     
     @Override
-    public FlagValue getFlagValue(Flags flag, Player player, Object object) {
+    public FlagValue getFlagValue(Flags flag, Player player, Location location, Object object) {
         FlagValue value = flagList.get(flag.name()).getEffectiveValue(player, object);
         if (value == FlagValue.UNDEFINED) {
             if (this.plot.getOwner() instanceof TerritoryOwner territoryOwner) {
-                value = territoryOwner.getTerritory().getFlagValue(flag, player, object);
+                value = territoryOwner.getTerritory().getFlagValue(flag, player, location, object);
             }
         }
         
