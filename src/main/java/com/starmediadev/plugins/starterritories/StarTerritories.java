@@ -1,13 +1,12 @@
 package com.starmediadev.plugins.starterritories;
 
+import com.starmediadev.plugins.starterritories.cmds.PlotCmd;
 import com.starmediadev.plugins.starterritories.listener.FlagListener;
 import com.starmediadev.plugins.starterritories.objects.plot.PlotManager;
 import com.starmediadev.plugins.starterritories.objects.resident.ResidentManager;
-import com.starmediadev.plugins.starterritories.objects.territory.*;
+import com.starmediadev.plugins.starterritories.objects.territory.TerritoryManager;
 import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.java.JavaPlugin;
-import revxrsal.commands.CommandHandler;
-import revxrsal.commands.bukkit.BukkitCommandHandler;
 
 import java.util.EnumSet;
 
@@ -30,10 +29,9 @@ public class StarTerritories extends JavaPlugin {
         territoryManager = new TerritoryManager();
         residentManager = new ResidentManager();
         getServer().getPluginManager().registerEvents(new FlagListener(this), this);
-    
-        CommandHandler commandHandler = BukkitCommandHandler.create(this);
-        commandHandler.registerDependency(StarTerritories.class, this);
-        commandHandler.register(new PlotCmds());
+        PlotCmd plotCmd = new PlotCmd(this);
+        getCommand("plot").setExecutor(plotCmd);
+        getCommand("plot").setTabCompleter(plotCmd);
     }
     
     @Override

@@ -15,7 +15,7 @@ public class PlotManager {
     }
     
     public Plot getPlot(String id) {
-        return plotsById.get(id);
+        return plotsById.get(id.toLowerCase());
     }
     
     public Plot getPlot(Chunk chunk) {

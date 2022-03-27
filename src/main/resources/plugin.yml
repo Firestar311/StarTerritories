@@ -4,3 +4,5 @@ description: ${project.description}
 main: ${project.groupId}.${project.artifactId}.${project.name}
 api-version: 1.18
 depend: [StarMCUtils]
+commands:
+  plot:
