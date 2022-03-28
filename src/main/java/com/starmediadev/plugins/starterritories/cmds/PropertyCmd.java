@@ -39,7 +39,7 @@ public class PropertyCmd implements TabExecutor {
         }
         
         if (args[0].equalsIgnoreCase("tool")) {
-            ItemStack tool = new ItemBuilder(Material.GOLDEN_SHOVEL).setDisplayName("&eProperty Claim Tool").withLore("&7Set the first and second positions", "",
+            ItemStack tool = new ItemBuilder(Material.GOLDEN_SHOVEL).displayName("&eProperty Claim Tool").lore("&7Set the first and second positions", "",
                     "&6&lLeft-Click &fon a block for the first position", "&6&lRight-Click &fon a block to set the second position").build();
             tool = plugin.getNMS().addNBTString(tool, "tooltype", "propertyclaimtool");
             player.getInventory().addItem(tool);
