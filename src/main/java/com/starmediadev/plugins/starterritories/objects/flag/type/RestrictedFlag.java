@@ -17,4 +17,6 @@ public abstract class RestrictedFlag extends Flag {
     public void setDefaultTypeValue(FlagValue defaultTypeValue) {
         this.defaultTypeValue = defaultTypeValue;
     }
+    
+    protected abstract boolean isValidType(Object object);
 }

@@ -11,6 +11,11 @@ public class MaterialFlag extends TypeFlag<Material> {
     }
     
     @Override
+    protected boolean isValidType(Object object) {
+        return object instanceof Material;
+    }
+    
+    @Override
     protected FlagValue checkRestricted(Player player, Object object) {
         if (this.value == FlagValue.RESTRICTED) {
             if (object instanceof Material material) {

@@ -10,6 +10,11 @@ public class EntityFlag extends TypeFlag<EntityType> {
     }
     
     @Override
+    protected boolean isValidType(Object object) {
+        return object instanceof EntityType;
+    }
+    
+    @Override
     protected FlagValue checkRestricted(Player player, Object object) {
         if (this.value == FlagValue.RESTRICTED) {
             if (object instanceof EntityType entityType) {
