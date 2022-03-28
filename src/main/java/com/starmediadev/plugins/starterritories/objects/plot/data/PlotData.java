@@ -1,9 +1,11 @@
 package com.starmediadev.plugins.starterritories.objects.plot.data;
 
+import com.starmediadev.plugins.starterritories.StarTerritories;
 import com.starmediadev.plugins.starterritories.objects.flag.*;
-import com.starmediadev.plugins.starterritories.objects.meta.Flagable;
+import com.starmediadev.plugins.starterritories.objects.meta.*;
 import com.starmediadev.plugins.starterritories.objects.owner.TerritoryOwner;
 import com.starmediadev.plugins.starterritories.objects.plot.*;
+import com.starmediadev.plugins.starterritories.objects.territory.Territory;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -42,6 +44,11 @@ public abstract class PlotData implements Flagable {
         if (value == FlagValue.UNDEFINED) {
             if (this.plot.getOwner() instanceof TerritoryOwner territoryOwner) {
                 value = territoryOwner.getTerritory().getFlagValue(flag, player, location, object);
+            } else {
+                Territory territory = StarTerritories.getPlugin(StarTerritories.class).getTerritoryManager().getTerritory(location);
+                if (territory != null && !(territory instanceof Plottable)) {
+                    value = territory.getFlagValue(flag, player, location, object);
+                }
             }
         }
         
