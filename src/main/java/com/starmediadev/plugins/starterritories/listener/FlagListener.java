@@ -107,13 +107,19 @@ public class FlagListener implements Listener {
     }
     
     private Flagable getFlagable(Location location) {
-        Flagable flagable;
-        Property property = getProperty(location);
-        if (property != null) {
-            flagable = property;
-        } else {
+        Flagable flagable = null;
+        for (Territory territory : plugin.getTerritoryManager().getTerritories()) {
+            if (!(territory instanceof Plottable)) {
+                if (territory.contains(location)) {
+                    flagable = territory;
+                }
+            }
+        }
+        
+        if (flagable == null) {
             flagable = plugin.getPlotManager().getPlot(location);
         }
+        
         return flagable;
     }
     
