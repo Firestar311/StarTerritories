@@ -14,15 +14,17 @@ public abstract class TypeFlag<T> extends RestrictedFlag {
         this.defaultTypeValue = defaultTypeValue;
     }
     
-    public void addType(T type, FlagValue value) {
+    public void addType(Object type, FlagValue value) {
         if (value == FlagValue.ALLOW || value == FlagValue.DENY) {
-            this.types.put(type, value);
+            this.types.put((T) type, value);
         }
     }
     
     public void setDefaultTypeValue(FlagValue defaultTypeValue) {
         this.defaultTypeValue = defaultTypeValue;
     }
+    
+    public abstract T convertInput(String input);
     
     @Override
     public String toString() {

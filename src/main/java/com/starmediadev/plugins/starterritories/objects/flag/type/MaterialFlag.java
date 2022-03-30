@@ -11,7 +11,12 @@ public class MaterialFlag extends TypeFlag<Material> {
     }
     
     @Override
-    protected boolean isValidType(Object object) {
+    public Material convertInput(String input) {
+        return Material.valueOf(input.toUpperCase());
+    }
+    
+    @Override
+    public boolean isValidType(Object object) {
         return object instanceof Material;
     }
     

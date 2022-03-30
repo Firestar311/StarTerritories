@@ -10,7 +10,12 @@ public class EntityFlag extends TypeFlag<EntityType> {
     }
     
     @Override
-    protected boolean isValidType(Object object) {
+    public EntityType convertInput(String input) {
+        return EntityType.valueOf(input.toUpperCase());
+    }
+    
+    @Override
+    public boolean isValidType(Object object) {
         return object instanceof EntityType;
     }
     

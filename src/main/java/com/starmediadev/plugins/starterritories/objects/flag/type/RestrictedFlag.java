@@ -18,5 +18,5 @@ public abstract class RestrictedFlag extends Flag {
         this.defaultTypeValue = defaultTypeValue;
     }
     
-    protected abstract boolean isValidType(Object object);
+    public abstract boolean isValidType(Object object);
 }

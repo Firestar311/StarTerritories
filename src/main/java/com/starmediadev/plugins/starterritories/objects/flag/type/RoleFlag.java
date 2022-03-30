@@ -11,7 +11,12 @@ public class RoleFlag extends TypeFlag<Role> {
     }
     
     @Override
-    protected boolean isValidType(Object object) {
+    public Role convertInput(String input) {
+        return null;
+    }
+    
+    @Override
+    public boolean isValidType(Object object) {
         return object instanceof Role;
     }
     
