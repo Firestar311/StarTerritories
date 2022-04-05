@@ -2,6 +2,8 @@ package com.starmediadev.plugins.starterritories;
 
 import com.starmediadev.nmswrapper.NMS;
 import com.starmediadev.nmswrapper.NMS.Version;
+import com.starmediadev.plugins.starmcutils.command.CommandManager;
+import com.starmediadev.plugins.starmcutils.region.SelectionManager;
 import com.starmediadev.plugins.starterritories.cmds.*;
 import com.starmediadev.plugins.starterritories.listener.*;
 import com.starmediadev.plugins.starterritories.objects.plot.PlotManager;
@@ -20,6 +22,7 @@ public class StarTerritories extends JavaPlugin {
     private PlotManager plotManager;
     private TerritoryManager territoryManager;
     private ResidentManager residentManager;
+    private SelectionManager selectionManager;
     
     public static final EnumSet<EntityType> PASSIVE_MOBS = EnumSet.of(AXOLOTL, BAT, CAT, CHICKEN, COD, COW, DONKEY, FOX, GLOW_SQUID, HORSE, MUSHROOM_COW, MULE, OCELOT, PARROT, PIG, PUFFERFISH, RABBIT, SALMON, SHEEP, SKELETON_HORSE, SNOWMAN, SQUID, STRIDER, TROPICAL_FISH, TURTLE, VILLAGER, WANDERING_TRADER);
     public static final EnumSet<EntityType> NEUTRAL_MOBS = EnumSet.of(BEE, CAVE_SPIDER, DOLPHIN, ENDERMAN, GOAT, IRON_GOLEM, LLAMA, PANDA, PIGLIN, POLAR_BEAR, SPIDER, TRADER_LLAMA, WOLF, ZOMBIFIED_PIGLIN);
@@ -33,10 +36,12 @@ public class StarTerritories extends JavaPlugin {
         plotManager = new PlotManager();
         territoryManager = new TerritoryManager();
         residentManager = new ResidentManager();
+        this.selectionManager = getServer().getServicesManager().getRegistration(SelectionManager.class).getProvider();
         getServer().getPluginManager().registerEvents(new FlagListener(this), this);
         getServer().getPluginManager().registerEvents(new ToolListener(this), this);
-        registerCommand("plot", new PlotCmd(this));
-        registerCommand("property", new PropertyCmd(this));
+        CommandManager commandManager = new CommandManager(this);
+        new PlotCommand(this).register(commandManager);
+        new PropertyCommand(this).register(commandManager);
     }
     
     private void registerCommand(String cmd, TabExecutor tabExecutor) {
@@ -64,5 +69,9 @@ public class StarTerritories extends JavaPlugin {
     
     public ResidentManager getResidentManager() {
         return residentManager;
+    }
+    
+    public SelectionManager getSelectionManager() {
+        return selectionManager;
     }
 }
