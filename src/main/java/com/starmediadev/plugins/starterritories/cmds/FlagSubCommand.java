@@ -110,7 +110,7 @@ public class FlagSubCommand<T extends Flagable> extends SubCommand {
             }
         };
         setSubCommand.addArgument(flagNameArgument);
-        Argument flagValueArgment = new Argument("flagValue", true, "The value for the flag setting");
+        Argument flagValueArgment = new Argument("flagValue", true, "You must provide a value for the flag");
         for (FlagValue flagValue : FlagValue.values()) {
             flagValueArgment.getCompletions().add(flagValue.name().toLowerCase());
         }
